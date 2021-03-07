@@ -10,12 +10,12 @@ const App = () => {
       e =>{
         const {name, value} = e.target;
         setForm(
-            produce(form, draft =>{
+            produce(draft =>{
                 draft[name] = value;
             })
         );
       },
-      [form]
+      []
   );
 
   const onSubmit = useCallback(
@@ -28,9 +28,10 @@ const App = () => {
         };
 
         setData(
-        produce(data, draft =>{
-            draft.array.push(info)
-        }));
+            produce(draft =>{
+                draft.array.push(info)
+            })
+        );
 
         setForm({
           name:'',
@@ -49,7 +50,7 @@ const App = () => {
   const onRemove = useCallback(
       id =>{
         setData(
-            produce(data, draft =>{
+            produce(draft =>{
                 draft.array.splice(draft.array.findIndex(info => info.id === id), 1)
             })
         );
