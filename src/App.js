@@ -44,7 +44,7 @@ const App = () => {
         });
         nextId.current+=1;
       },
-      [data, form.name, form.username]
+      [form.name, form.username]
   );
 
   const onRemove = useCallback(
@@ -55,7 +55,7 @@ const App = () => {
             })
         );
       },
-      [data]
+      []
   );
 
 
